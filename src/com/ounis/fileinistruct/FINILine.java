@@ -47,9 +47,9 @@ public class FINILine {
     }
     
     /**
-     * @param args the command line arguments
+     * testowanie
+     * @param args 
      */
-    
     public static void main(String[] args) {
         // TODO code application logic here
         

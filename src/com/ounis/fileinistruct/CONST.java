@@ -15,4 +15,5 @@ public class CONST {
     public static final String PREF_SECT = "[";
     public static final String SUFF_SECT = "]";
     public static final String SEP_KEY_VAL = "=";
+    public static final String KEY_EMPTY_VALUE = "";
 }

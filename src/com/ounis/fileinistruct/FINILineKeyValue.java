@@ -37,13 +37,22 @@ public class FINILineKeyValue extends FINILine {
         
         String[] pairKV = aLine.split(CONST.SEP_KEY_VAL);
         this.key = pairKV[0];
-        this.value = pairKV[1];
+/*        tutaj sprawdzanie i reagowanie na przypadek, który wystąpił w pliku
+*           fo2tweaks.ini:
+        
+         [unlimited_party]
+         npc_pids=
+        brak wartości klucza, zapełniamy domyślną pustą wartością: KEY_EMPTY_VALUE
+*/
+
+        this.value = pairKV.length > 1 ? pairKV[1] : CONST.KEY_EMPTY_VALUE;
     }
     
     public FINILineKeyValue(int alineNum, String aSection, String aKey, String aValue) {
-        this(alineNum, aSection, aKey.concat("=").concat(aValue));
+        this(alineNum, aSection, aKey.concat(CONST.SEP_KEY_VAL).concat(aValue));
 //        super(alineNum,aSection,aKey.concat("=").concat(aValue));
     }
+    
     
     
     public String toString() {
