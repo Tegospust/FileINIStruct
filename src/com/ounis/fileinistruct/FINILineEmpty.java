@@ -10,6 +10,11 @@ package com.ounis.fileinistruct;
  */
 public class FINILineEmpty extends FINILine {
     
+    /**
+     * <font size="5" color="#ff0000">konstruktor pustej linii</font>
+     * @param aLineNum
+     * @param aSection 
+     */
     public FINILineEmpty(int aLineNum, String aSection) {
         super(aLineNum, aSection, "");
         this.linePref = CONST.PREF_EMPTY;

@@ -11,8 +11,14 @@ public class FINILineSection extends FINILine {
         return this.sectionName;
     }
     
+    /**
+     * <font size="5" color="#ff0000">konstruktor linii sekcji</font>
+     * 
+     * @param aLineNum
+     * @param aSectName 
+     */
     public FINILineSection(int aLineNum, String aSectName) {
-        super(aLineNum, aSectName,CONST.PREF_SECT.concat(aSectName).concat(CONST.SUFF_SECT));
+        super(aLineNum, null,CONST.PREF_SECT.concat(aSectName).concat(CONST.SUFF_SECT));
         this.sectionName = aSectName;
         this.linePref = CONST.PREF_SECT;
     }

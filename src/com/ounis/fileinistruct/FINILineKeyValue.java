@@ -4,11 +4,29 @@
  */
 package com.ounis.fileinistruct;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author AndroidDev
  */
 public class FINILineKeyValue extends FINILine {
+    
+    /**
+     * historia zmian wartości klucza
+     */
+    protected List<String> valueChangeHist;
+    public ArrayList<String> getValueChangedHist() {  // readonly
+        ArrayList<String> result = new ArrayList<>();
+        if (valueChangeHist.size() > 0) {
+//            result = new ArrayList<>();
+            // kopiowanie
+            for(String s: valueChangeHist) 
+                result.add(s);
+        }
+        return result;
+    }
     
     protected String key;
     public String getKey() {
@@ -17,6 +35,14 @@ public class FINILineKeyValue extends FINILine {
     protected String value;
     public String getValue() {
         return value;
+    }
+
+    public void setValue (String aNewValue) {
+        this.value = aNewValue;
+//        dodanie zmienionej wartości do listy histori zmian wartości w dla klucza  
+        if (valueChangeHist == null)
+            valueChangeHist = new ArrayList<>();
+        valueChangeHist.add(aNewValue);
     }
 //    
 //    protected FINILine section;
@@ -29,6 +55,12 @@ public class FINILineKeyValue extends FINILine {
         return this.section.toString();
     }
     
+    /**
+     * <font size="5" color="#ff0000">konstruktor linii klucz=wartość</font>
+     * @param alineNum
+     * @param aSection
+     * @param aLine 
+     */
     public FINILineKeyValue(int alineNum, String  aSection,String aLine) {
         super(alineNum, aSection, aLine);
         this.linePref = CONST.PREF_EMPTY;
@@ -46,6 +78,7 @@ public class FINILineKeyValue extends FINILine {
 */
 
         this.value = pairKV.length > 1 ? pairKV[1] : CONST.KEY_EMPTY_VALUE;
+        valueChangeHist = new ArrayList<>();
     }
     
     public FINILineKeyValue(int alineNum, String aSection, String aKey, String aValue) {
