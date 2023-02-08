@@ -38,11 +38,11 @@ public class FINILineKeyValue extends FINILine {
     }
 
     public void setValue (String aNewValue) {
+        valueChangeHist.add(this.value); // zapamietanie starej wartości przed zmianą
         this.value = aNewValue;
 //        dodanie zmienionej wartości do listy histori zmian wartości w dla klucza  
         if (valueChangeHist == null)
             valueChangeHist = new ArrayList<>();
-        valueChangeHist.add(aNewValue);
     }
 //    
 //    protected FINILine section;
